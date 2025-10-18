@@ -1,0 +1,17 @@
+class UnionBankATM extends BankATM{
+    public UnionBankATM(Account account){
+        super(account);
+    }
+    @Override
+    public void withdraw(double amount){
+        double charge=5;
+        double balance=getBalance();
+        if(amount+charge>balance){
+            System.out.println("There is no sufficent balance in yuor account");
+        }
+        else{
+            Account.setBalance(Account.getBalance()-(amount+charge));
+            System.out.println("The amount "+amount+" is debited from your account with charge of 5 ruppess");
+        }
+    }
+}
